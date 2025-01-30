@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _moveVelocity;
 
-
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -25,4 +23,6 @@ public class Player : MonoBehaviour
     {
         _rb.MovePosition(_rb.position + _moveVelocity * Time.fixedDeltaTime);
     }
+
+    
 }

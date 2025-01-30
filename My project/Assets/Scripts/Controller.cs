@@ -13,11 +13,13 @@ public class Controller : MonoBehaviour
 
     [SerializeField] private Button _buttonClick;
     [SerializeField] private Button _buttonUpgrade;
+    [SerializeField] private Button _buttonToMainMenu;
 
     private void Start()
     {
         _buttonClick.onClick.AddListener(Click);
         _buttonUpgrade.onClick.AddListener(UpgradeClick);
+        _buttonToMainMenu.onClick.AddListener(ToMainMenu);
 
         _coins = PlayerPrefs.GetInt("Coins", 0);
         _rate = PlayerPrefs.GetInt("Rate", 1);
@@ -47,6 +49,7 @@ public class Controller : MonoBehaviour
     {
         _buttonClick.onClick.RemoveListener(Click);
         _buttonUpgrade.onClick.RemoveListener(UpgradeClick);
+        _buttonToMainMenu.onClick.RemoveListener(ToMainMenu);  
     }
 
     public void RefreshLevel()
@@ -58,5 +61,10 @@ public class Controller : MonoBehaviour
     {
         PlayerPrefs.SetInt("Coins", 0);
         PlayerPrefs.SetInt("Rate", 1);
+    }
+
+    private void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
